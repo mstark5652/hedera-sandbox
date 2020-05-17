@@ -1,0 +1,20 @@
+{
+    "name": "hedera-sandbox",
+    "productName": "hedera-sandbox",
+    "version": "0.0.1",
+    "private": true,
+    "description": "Code samples with hedera consensus service.",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mstark5652/hedera-sandbox.git"
+    },
+    "author": "mstark",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "devDependencies": {},
+    "dependencies": {
+        "@hashgraph/sdk": "^1.1.12"
+    }
+}
