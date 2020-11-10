@@ -1,17 +1,14 @@
-const HederaClient = require('./client')
-const { AccountBalanceQuery } = require('@hashgraph/sdk')
+const args = require('st-cl-parser')()
+const { getAccountBalance } = require('./src/account')
 
-const getBalance = async (accountId) => {
-  const balance = await new AccountBalanceQuery()
-    .setAccountId(accountId)
-    .execute(HederaClient)
-  console.log(`${HederaClient._operatorAccount} balance = ${balance.value()}`)
+const getBalance = async accountId => {
+  const balance = await getAccountBalance(accountId)
+  console.log('balance', +balance)
+  process.exit(0)
 }
 
-
-if (process.argv && process.argv.length > 2 && process.argv[2]) {
-  getBalance(process.argv[2])
+if (args && args.accountId) {
+  getBalance(args.accountId)
 } else {
   console.error('please provide account id as argument')
 }
-
